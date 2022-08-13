@@ -1,9 +1,9 @@
 # This code can compute digits of pi via collision without tracking the motion of the objests!
 # It only counts the number of times the objects will collide before they never reach eachother.
-
+# Credit for this code goes to: https://github.com/prajwalsouza/ , although mine seems to run faster.
 vs = 0
 vb = -1
-n = 7
+n = 6
 ms = 1
 mb = 100**n
 
@@ -31,4 +31,6 @@ while check_run(vs, vb):
         counter += 1
         vs, vb = elastic_col_vel(vs, vb, ms, mb)
         to_hit = "wall"
-print(counter)
+
+digits = [",".join(i) for i in str(counter)]
+print("The first {} digits of pi are:".format(len(digits)), digits)
